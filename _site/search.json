@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This content appears above the formatted about page content.\n:::{#hero-heading}"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Christine Hou",
+    "section": "",
+    "text": "Email\n  \n  \n    \n     Github\n  \n\n  \n  \n\nWelcome\nHi! Welcome to Christine Hou’s world! Happy to meet you!\nI am 22 years old, and I came from Southern China.\n\n\nEducation\nJohns Hopkins University School of Public Health| Baltimore, MD\nScM in Biostatistics | August 2023 - May 2025\nUniversity of Wisconsin - Madison | Madison, WI\nB.S. in Statistics & B.S. in Data Science | September 2019 - May 2023\n\n\nHobby\nTravel (Definitely with Friends!)\nCook (Asian Food)\nLego (Harry Potter & Technics)"
+  },
+  {
+    "objectID": "data_analysis.html",
+    "href": "data_analysis.html",
+    "title": "data_analysis.qmd",
+    "section": "",
+    "text": "This content appears above the formatted about page content.\n:::{#hero-heading}"
+  },
+  {
+    "objectID": "data_analysis.html#quarto",
+    "href": "data_analysis.html#quarto",
+    "title": "data_analysis.qmd",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "data_analysis.html#running-code",
+    "href": "data_analysis.html#running-code",
+    "title": "data_analysis.qmd",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  }
+]

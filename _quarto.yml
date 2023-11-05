@@ -2,18 +2,22 @@ project:
   type: website
 
 website:
-  title: "intro"
+  title: "Christine Hou"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+      - href: data_analysis.qmd
+        text: Data Analysis
 
 format:
   html:
-    theme: cosmo
+    theme: minty
     css: styles.css
     toc: true
 
-
+execute:
+  freeze: auto
 

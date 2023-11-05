@@ -1,0 +1,7 @@
+---
+title: "data_analysis.qmd"
+---
+
+### This content appears above the formatted about page content.
+
+:::{#hero-heading}
