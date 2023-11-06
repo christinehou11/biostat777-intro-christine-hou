@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Christine Hou - data_analysis.qmd</title>
+<title>Christine Hou - Crime Data in Los Angeles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -109,7 +143,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#this-content-appears-above-the-formatted-about-page-content." id="toc-this-content-appears-above-the-formatted-about-page-content." class="nav-link active" data-scroll-target="#this-content-appears-above-the-formatted-about-page-content.">This content appears above the formatted about page content.</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span style="color:#3eb489;">Introduction</span></a></li>
+  <li><a href="#data-information" id="toc-data-information" class="nav-link" data-scroll-target="#data-information"><span style="color:#3eb489;">Data Information</span></a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span style="color:#3eb489;">Analysis</span></a>
+  <ul class="collapse">
+  <li><a href="#pre-analysis" id="toc-pre-analysis" class="nav-link" data-scroll-target="#pre-analysis">Pre-Analysis</a></li>
+  <li><a href="#data-overview" id="toc-data-overview" class="nav-link" data-scroll-target="#data-overview">Data Overview</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis">Data Analysis</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -118,7 +159,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">data_analysis.qmd</h1>
+<h1 class="title">Crime Data in Los Angeles</h1>
+<p class="subtitle lead">Febraury 10, 2020 to November 1, 2023</p>
 </div>
 
 
@@ -133,11 +175,181 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="this-content-appears-above-the-formatted-about-page-content." class="level3">
-<h3 class="anchored" data-anchor-id="this-content-appears-above-the-formatted-about-page-content.">This content appears above the formatted about page content.</h3>
-<p>:::{#hero-heading}</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction"><span style="color:#3eb489;">Introduction</span></h2>
+<p>The City of Los Angeles, a well-known and prosperous place in United States, attracts more people move in and settle down every year. It is common for every person to ask a question: Is the City of Los Angles a dangerous city, and what is the general distribution of crime incidences considering various factors? This similar safety evaluation of the city before living in the area formally is extremely important for every <span style="color:#3eb489;">future residents</span>. Therefore, the data analysis of crime incidences in the City of Los Anegeles provided by LAPD (Los Angeles Police Department) would be really helpful for future residents to choose the house(s)/apartment(s), and further determine daily activities such as grocery shopping, schools for children, and etc. We all now that keeping safe is always on the top.</p>
+</section>
+<section id="data-information" class="level2">
+<h2 class="anchored" data-anchor-id="data-information"><span style="color:#3eb489;">Data Information</span></h2>
+<p>This dataset comes from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a>, and it includes the information about crimes happened since Febraury 10, 2020, provided by <span style="color:#3eb489;">LAPD</span> (Los Angeles Police Department). I downloaded the dataset and began to conduct the analysis on November 5, 2023, and becuase the website is updated weekly, the <a href="https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?date=20231105&amp;accessType=DOWNLOAD">dataset</a> I analyzed on my web page contains the crime information from Febraury 10, 2020 to November 1, 2023.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I compressed the dataset <em>Crime_Data_from_2020_to_Present_20231105.csv</em> into <em>data.zip</em>, and uploaded to GitHub directory for convenience. If the dataset link above accidently expires, you can get access to the dataset by visiting my <a href="https://github.com/christinehou11/biostat777-intro-christine-hou/blob/main/data.zip">GitHub directory</a>.</p>
+</div>
+</div>
+<p>The dataset contains 830K rows and 28 columns, and the data dictionary is <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=Columns%20in%20this%20Dataset">here</a>.</p>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis"><span style="color:#3eb489;">Analysis</span></h2>
+<section id="pre-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="pre-analysis">Pre-Analysis</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-overview" class="level3">
+<h3 class="anchored" data-anchor-id="data-overview">Data Overview</h3>
+<p>First, read the data from <em>data.zip</em> file, and store it in local environment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">unz</span>(<span class="st">"data.zip"</span>, <span class="st">"Crime_Data_from_2020_to_Present_20231105.csv"</span>), <span class="at">header =</span> <span class="cn">TRUE</span>,<span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then, let’s have a brief overview of this dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 829778     28</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "DR_NO"          "Date.Rptd"      "DATE.OCC"       "TIME.OCC"      
+ [5] "AREA"           "AREA.NAME"      "Rpt.Dist.No"    "Part.1.2"      
+ [9] "Crm.Cd"         "Crm.Cd.Desc"    "Mocodes"        "Vict.Age"      
+[13] "Vict.Sex"       "Vict.Descent"   "Premis.Cd"      "Premis.Desc"   
+[17] "Weapon.Used.Cd" "Weapon.Desc"    "Status"         "Status.Desc"   
+[21] "Crm.Cd.1"       "Crm.Cd.2"       "Crm.Cd.3"       "Crm.Cd.4"      
+[25] "LOCATION"       "Cross.Street"   "LAT"            "LON"           </code></pre>
+</div>
+</div>
+<p>This dataset has approximately 830K rows and 28 columns, containing many useful information including crime report data, number of cases, crime area/age/sex/serious level/address, etc. There are many analysis possibilities using this dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (col <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(data)) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="fu">colnames</span>(data)[col], <span class="fu">sum</span>(<span class="fu">is.na</span>(data[col]))))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "DR_NO 0"
+[1] "Date.Rptd 0"
+[1] "DATE.OCC 0"
+[1] "TIME.OCC 0"
+[1] "AREA 0"
+[1] "AREA.NAME 0"
+[1] "Rpt.Dist.No 0"
+[1] "Part.1.2 0"
+[1] "Crm.Cd 0"
+[1] "Crm.Cd.Desc 0"
+[1] "Mocodes 0"
+[1] "Vict.Age 0"
+[1] "Vict.Sex 0"
+[1] "Vict.Descent 0"
+[1] "Premis.Cd 10"
+[1] "Premis.Desc 0"
+[1] "Weapon.Used.Cd 540459"
+[1] "Weapon.Desc 0"
+[1] "Status 0"
+[1] "Status.Desc 0"
+[1] "Crm.Cd.1 10"
+[1] "Crm.Cd.2 768750"
+[1] "Crm.Cd.3 827720"
+[1] "Crm.Cd.4 829717"
+[1] "LOCATION 0"
+[1] "Cross.Street 0"
+[1] "LAT 0"
+[1] "LON 0"</code></pre>
+</div>
+</div>
+<p>Some columns exist the NA values, and some character columns have empty strings without providing any useful information. Therefore, pay attention to these columns, and process the dataset using some filter functions to perform better analysis.</p>
+</section>
+<section id="data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="data-analysis">Data Analysis</h3>
+<p>Like what I mentioned in Introduction part, people are caring about the safety of living area. Therefore, in my analysis, I will focus on answering the question: <span style="color:#3eb489;">what are the crime statistics in top 5 safest areas in the City of Los Angeles?</span></p>
+<section id="what-the-names-of-top-5-safest-areas" class="level4">
+<h4 class="anchored" data-anchor-id="what-the-names-of-top-5-safest-areas">What the names of top 5 safest areas?</h4>
+<p>I first select top 10 living areas in the City of Los Angeles from 2020 to 2023 to narrow the target range.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>top_10 <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date.Rptd,Crm.Cd, AREA.NAME) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd))) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">year</span>(Date.Rptd)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AREA.NAME) <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cases =</span> <span class="fu">sum</span>(Crm.Cd)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(cases) <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>top_10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   AREA.NAME      cases
+   &lt;chr&gt;          &lt;int&gt;
+ 1 Foothill    14253246
+ 2 Hollenbeck  15920715
+ 3 Devonshire  16606888
+ 4 Topanga     16752061
+ 5 Mission     17033601
+ 6 West Valley 17465720
+ 7 Van Nuys    17649650
+ 8 Harbor      17957531
+ 9 Northeast   18028737
+10 West LA     18846740</code></pre>
+</div>
+</div>
+<p>Next, we can plot how the crime cases change over time to see which five areas will be the best choices for future residents to consider after 2023 (Sometimes, there exists the fluctuations).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date.Rptd,Crm.Cd, AREA.NAME) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(AREA.NAME <span class="sc">%in%</span> top_10<span class="sc">$</span>AREA.NAME) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd))) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">year</span>(Date.Rptd)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AREA.NAME,Year) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cases =</span> <span class="fu">sum</span>(Crm.Cd),<span class="at">.groups=</span><span class="st">'drop'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> cases,<span class="at">color=</span>AREA.NAME)) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Cases (in millions)"</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"The Number of Crime Cases Reported in 10 Cities</span><span class="sc">\n</span><span class="st">with Lower Crime Incidences in the City of Los Angeles"</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"The crime incidences of 10 cities show similar trends</span><span class="sc">\n</span><span class="st">The top 5 safest area in the City of Los Angeles are: </span><span class="sc">\n</span><span class="st">Foothill, Hollenbeck, Mission, Devonshire, and Topanga."</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Christine Hou"</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Area Names"</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="at">scale =</span> <span class="fl">1e-6</span>))<span class="sc">+</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">13</span>),</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="what-are-the-victim-age-and-sex-in-the-five-areas" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-the-victim-age-and-sex-in-the-five-areas">What are the victim age and sex in the five areas?</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>top_5 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Foothill"</span>, <span class="st">"Hollenbeck"</span>, <span class="st">"Mission"</span>, <span class="st">"Devonshire"</span>,<span class="st">"Topanga"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

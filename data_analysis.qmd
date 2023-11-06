@@ -5,25 +5,114 @@ subtitle: "Febraury 10, 2020 to November 1, 2023"
 
 ## [Introduction]{style="color:#3eb489;"}
 
-The City of Los Angeles, a well-known and prosperous place in United States, attracts more people move in and settle down every year. It is common for every person to ask a question: [Is the City of Los Angles a dangerous city, and what is the general distribution of crime incidences considering various factors?]{style="color:#3eb489;"} This similar security evaluation of the city before living in the area formally is extremely important for every [future residents]{style="color:#3eb489;"}. Therefore, the data analysis of crime incidences in the City of Los Anegeles provided by LAPD (Los Angeles Police Department) would be really helpful for future residents to choose the house(s)/apartment(s), and further determine daily activities such as grocery shopping, schools for children, and etc. We all now that keeping safe is always on the top.
-
-## [Data Source]{style="color:#3eb489;"}
-
-This data source comes from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a>, and it includes the information about crimes happened since Febraury 10, 2020, provided by [LAPD]{style="color:#3eb489;"} (Los Angeles Police Department). The <a href = "https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?date=20231105&accessType=DOWNLOAD">dataset</a> I analyzed on my web page contains the crime information from Febraury 10, 2020 to November 1, 2023, and I downloaded it on November 5, 2023.
-
-::: callout-note
-I compressed the dataset *Crime_Data_from_2020_to_Present_20231105.csv* into *data.zip*, and uploaded to GitHub directory for convenience. If the dataset link accidently expires, you can get access to the dataset by visiting <a href = "https://github.com/christinehou11/biostat777-intro-christine-hou">GitHub directory</a>.
-:::
+The City of Los Angeles, a well-known and prosperous place in United States, attracts more people move in and settle down every year. It is common for every person to ask a question: Is the City of Los Angles a dangerous city, and what is the general distribution of crime incidences considering various factors? This similar safety evaluation of the city before living in the area formally is extremely important for every [future residents]{style="color:#3eb489;"}. Therefore, the data analysis of crime incidences in the City of Los Anegeles provided by LAPD (Los Angeles Police Department) would be really helpful for future residents to choose the house(s)/apartment(s), and further determine daily activities such as grocery shopping, schools for children, and etc. We all now that keeping safe is always on the top.
 
 ## [Data Information]{style="color:#3eb489;"}
 
+This dataset comes from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a>, and it includes the information about crimes happened since Febraury 10, 2020, provided by [LAPD]{style="color:#3eb489;"} (Los Angeles Police Department). I downloaded the dataset and began to conduct the analysis on November 5, 2023, and becuase the website is updated weekly, the <a href = "https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?date=20231105&accessType=DOWNLOAD">dataset</a> I analyzed on my web page contains the crime information from Febraury 10, 2020 to November 1, 2023.
+
+::: callout-note
+I compressed the dataset *Crime_Data_from_2020_to_Present_20231105.csv* into *data.zip*, and uploaded to GitHub directory for convenience. If the dataset link above accidently expires, you can get access to the dataset by visiting my <a href = "https://github.com/christinehou11/biostat777-intro-christine-hou/blob/main/data.zip">GitHub directory</a>.
+:::
+
+The dataset contains 830K rows and 28 columns, and the data dictionary is <a href = "https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=Columns%20in%20this%20Dataset">here</a>.
+
 ## [Analysis]{style="color:#3eb489;"}
 
-### Data Wrangling
+### Pre-Analysis
 
-```{r}
-data <- read.csv(unz("data.zip", "Crime_Data_from_2020_to_Present_20231105.csv"), header = TRUE,sep = ",")
-dim(data)
+```{r,message=FALSE,warning=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(lubridate)
+library(forcats)
 ```
 
-### Data Visualization
+### Data Overview
+
+First, read the data from *data.zip* file, and store it in local environment.
+
+```{r,comment=NA}
+data <- read.csv(unz("data.zip", "Crime_Data_from_2020_to_Present_20231105.csv"), header = TRUE,sep = ",")
+```
+
+Then, let's have a brief overview of this dataset.
+
+```{r,comment=NA}
+dim(data)
+colnames(data)
+```
+
+This dataset has approximately 830K rows and 28 columns, containing many useful information including crime report data, number of cases, crime area/age/sex/serious level/address, etc. There are many analysis possibilities using this dataset.
+
+```{r,comment=NA}
+for (col in 1:ncol(data)) {
+  print(paste(colnames(data)[col], sum(is.na(data[col]))))
+}
+```
+
+Some columns exist the NA values, and some character columns have empty strings without providing any useful information. Therefore, pay attention to these columns, and process the dataset using some filter functions to perform better analysis.
+
+### Data Analysis
+
+Like what I mentioned in Introduction part, people are caring about the safety of living area. Therefore, in my analysis, I will focus on answering the question: [what are the crime statistics in top 5 safest areas in the City of Los Angeles?]{style="color:#3eb489;"}
+
+#### What the names of top 5 safest areas?
+
+I first select top 10 living areas in the City of Los Angeles from 2020 to 2023 to narrow the target range.
+
+```{r,comment=NA}
+top_10 = data %>%
+  select(Date.Rptd,Crm.Cd, AREA.NAME) %>%
+  mutate(Date.Rptd = mdy(sub("(\\d{2}/\\d{2}/\\d{4}).*", "\\1", Date.Rptd))) %>% 
+  mutate(Year = year(Date.Rptd)) %>%
+  arrange(Date.Rptd) %>%
+  group_by(AREA.NAME) %>%
+  summarize(cases = sum(Crm.Cd)) %>%
+  arrange(cases) %>%
+  head(10)
+
+top_10
+```
+
+Next, we can plot how the crime cases change over time to see which five areas will be the best choices for future residents to consider after 2023 (Sometimes, there exists the fluctuations).
+
+```{r}
+data %>%
+  select(Date.Rptd,Crm.Cd, AREA.NAME) %>%
+  filter(AREA.NAME %in% top_10$AREA.NAME) %>%
+  mutate(Date.Rptd = mdy(sub("(\\d{2}/\\d{2}/\\d{4}).*", "\\1", Date.Rptd))) %>% 
+  mutate(Year = year(Date.Rptd)) %>%
+  arrange(Date.Rptd) %>%
+  group_by(AREA.NAME,Year) %>%
+  summarize(cases = sum(Crm.Cd),.groups='drop') %>%
+  ggplot(aes(x = Year, y = cases,color=AREA.NAME)) +
+  geom_point() +
+  geom_line() + 
+  labs(
+    x = "Year",
+    y = "Number of Cases (in millions)",
+    title = "The Number of Crime Cases Reported in 10 Cities\nwith Lower Crime Incidences in the City of Los Angeles",
+    subtitle = "The crime incidences of 10 cities show similar trends\nThe top 5 safest area in the City of Los Angeles are: \nFoothill, Hollenbeck, Mission, Devonshire, and Topanga.",
+    caption = "Christine Hou",
+    color = "Area Names"
+  ) +
+  scale_y_continuous(labels = scales::comma_format(scale = 1e-6))+
+  theme_classic() +
+  theme(
+    plot.title = element_text(size=13),
+    plot.subtitle = element_text(size=10),
+    legend.title = element_text(size=9),
+    legend.text = element_text(size=8),
+    axis.title = element_text(size = 9),
+    axis.text = element_text(size = 9)
+  )
+```
+
+#### What are the victim age and sex in the five areas?
+
+```{r,comment=NA}
+top_5 = c("Foothill", "Hollenbeck", "Mission", "Devonshire","Topanga")
+```
