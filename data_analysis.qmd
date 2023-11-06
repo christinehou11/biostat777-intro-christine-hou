@@ -1,7 +1,29 @@
 ---
-title: "data_analysis.qmd"
+title: "Crime Data in Los Angeles"
+subtitle: "Febraury 10, 2020 to November 1, 2023"
 ---
 
-### This content appears above the formatted about page content.
+## [Introduction]{style="color:#3eb489;"}
 
-:::{#hero-heading}
+The City of Los Angeles, a well-known and prosperous place in United States, attracts more people move in and settle down every year. It is common for every person to ask a question: [Is the City of Los Angles a dangerous city, and what is the general distribution of crime incidences considering various factors?]{style="color:#3eb489;"} This similar security evaluation of the city before living in the area formally is extremely important for every [future residents]{style="color:#3eb489;"}. Therefore, the data analysis of crime incidences in the City of Los Anegeles provided by LAPD (Los Angeles Police Department) would be really helpful for future residents to choose the house(s)/apartment(s), and further determine daily activities such as grocery shopping, schools for children, and etc. We all now that keeping safe is always on the top.
+
+## [Data Source]{style="color:#3eb489;"}
+
+This data source comes from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a>, and it includes the information about crimes happened since Febraury 10, 2020, provided by [LAPD]{style="color:#3eb489;"} (Los Angeles Police Department). The <a href = "https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?date=20231105&accessType=DOWNLOAD">dataset</a> I analyzed on my web page contains the crime information from Febraury 10, 2020 to November 1, 2023, and I downloaded it on November 5, 2023.
+
+::: callout-note
+I compressed the dataset *Crime_Data_from_2020_to_Present_20231105.csv* into *data.zip*, and uploaded to GitHub directory for convenience. If the dataset link accidently expires, you can get access to the dataset by visiting <a href = "https://github.com/christinehou11/biostat777-intro-christine-hou">GitHub directory</a>.
+:::
+
+## [Data Information]{style="color:#3eb489;"}
+
+## [Analysis]{style="color:#3eb489;"}
+
+### Data Wrangling
+
+```{r}
+data <- read.csv(unz("data.zip", "Crime_Data_from_2020_to_Present_20231105.csv"), header = TRUE,sep = ",")
+dim(data)
+```
+
+### Data Visualization
