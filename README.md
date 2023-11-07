@@ -2,9 +2,13 @@
 
 Welcome to Christine Hou's GitHub Page.
 
-This page is to conduct analysis on the crime data of the City of Los Angeles from 2020 to present collected by **Los Angeles Police Department**.(Link: https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:\~:text=from%202020%20to-,Present,-Public%20Safety)
+This page stores the files to create my personal introduction website - <https://christinehou.quarto.pub/christine-hou/>.
 
-The dataset is also stored in this GitHub page named **data.zip** for convinience.
+The website includes my basic information (education, hobbies, etc).
+
+It also includes one data analysis on the crime data of the City of Los Angeles from 2020 to present collected by **Los Angeles Police Department** - https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:\~:text=from%202020%20to-,Present,-Public%20Safety)
+
+The dataset is stored on this GitHub page named **data.zip** for convenience.
 
 To conduct analysis,
 
