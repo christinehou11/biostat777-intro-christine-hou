@@ -1,23 +1,27 @@
 ---
 title: "Crime Data in Los Angeles"
 subtitle: "Febraury 10, 2020 to November 1, 2023"
+bibliography: reference.bib
 ---
 
 ## [Introduction]{style="color:#3eb489;"}
 
-![Source: <https://www.prevu.com/blog/best-neighborhoods-in-los-angeles>](LA.PNG){fig-alt="Los Angeles" fig-align="center" width="80%"}
+![Source:[@image]](LA.PNG){fig-align="center" width="80%"}
 
-The City of Los Angeles, a well-known and prosperous place in United States, attracts more people move in and settle down every year. It is common for every person to ask a question: Is the City of Los Angles a dangerous city, and what is the general distribution of crime incidents considering various factors? The safety evaluation before living in the area formally is extremely important for every [future residents]{style="color:#3eb489;"}, and the evaluation can help [policymakers]{style="color:#3eb489;"} make better polities to improve city infrastructure and protect current residents. Therefore, the data analysis of crime incidents in the City of Los Anegeles provided by LAPD (Los Angeles Police Department) would be really helpful. We all now that keeping safe is always on the top.
+The City of Los Angeles, a well-known and prosperous place in United States, attracts more people move in and settle down every year. It is common for every person to ask a question: Is the City of Los Angles a dangerous city, and what is the general distribution of crime incidents considering various factors? The safety evaluation before living in the area formally is extremely important for every [future residents]{style="color:#3eb489;"}, and the evaluation can help [policymakers]{style="color:#3eb489;"} make better policies to improve city infrastructure and protect current residents. Therefore, the data analysis of crime incidents in the City of Los Angeles provided by LAPD (Los Angeles Police Department) would be really helpful. We all know that keeping safe is always on the top.
 
 ## [Data Information]{style="color:#3eb489;"}
 
-This dataset comes from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a>, and it includes the information about crimes happened since Febraury 10, 2020, provided by [LAPD]{style="color:#3eb489;"} (Los Angeles Police Department). I downloaded the dataset and began to conduct the analysis on November 5, 2023, and becuase the website is updated weekly, the <a href = "https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?date=20231105&accessType=DOWNLOAD">dataset</a> I analyzed on my web page contains the crime information from Febraury 10, 2020 to November 1, 2023.
+Gaining aspirations from the experts[@Campedelli_2020; @hussain2022crime], I chose the newst crime data from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a>[@Data], and it includes the information about crimes happened since Febraury 10, 2020, provided by [LAPD]{style="color:#3eb489;"} (Los Angeles Police Department). I downloaded the dataset and began to conduct the analysis on November 5, 2023, and becuase the website is updated weekly, the dataset I analyzed on my web page only contains the crime information from Febraury 10, 2020 to November 1, 2023.
 
 ::: callout-note
-I compressed the dataset *Crime_Data_from_2020_to_Present_20231105.csv* into *data.zip*, and uploaded to GitHub directory for convenience. If the dataset link above accidently expires, you can get access to the dataset by visiting my <a href = "https://github.com/christinehou11/biostat777-intro-christine-hou/blob/main/data.zip">GitHub directory</a>.
+You can choose to click the link and export the dataset using the 'Export' buttom on the web page. 
+You can also choose to download *data.zip* from my GitHub directory. I compressed the dataset into *data.zip*, and stored it in GitHub directory for convenience. If the website accidently expires, you can get access to the dataset by visiting my <a href = "https://github.com/christinehou11/biostat777-intro-christine-hou/blob/main/data.zip">GitHub directory</a>.
 :::
 
-The dataset contains 830K rows and 28 columns, and the data dictionary is <a href = "https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=Columns%20in%20this%20Dataset">here</a>.
+::: callout-important
+All data in the dataset was obtained from the crime paper report, so if the paper report provided inaccurate or wrong information, the dataset may be not 100% accurate. But the dataset truly reflects the content of paper report.
+:::
 
 ## [Analysis]{style="color:#3eb489;"}
 
@@ -30,6 +34,7 @@ library(tidyr)
 library(readr)
 library(lubridate)
 library(forcats)
+library(tidyverse)
 ```
 
 ### Data Overview
@@ -59,11 +64,11 @@ Some columns exist the NA values, and some character columns have empty strings 
 
 ### Data Analysis
 
-Like what I mentioned in Introduction part, people are caring about the safety of living area. Therefore, in my analysis, I will focus on answering the question: [what are the crime statistics in the City of Los Angeles?]{style="color:#3eb489;"}
+In my analysis, I will focus on answering the question: [What are the features of victims in the City of Los Angeles?]{style="color:#3eb489;"}
 
 #### [How does the crime incidents change over time (2020-2023)?]{style="color:#3eb489;"}
 
-```{r, out.width="100%"}
+```{r, out.width="100%",message=FALSE,warning=FALSE}
 data %>%
   select(Date.Rptd,Crm.Cd) %>%
   mutate(Date.Rptd = mdy(sub("(\\d{2}/\\d{2}/\\d{4}).*", "\\1", Date.Rptd))) %>% 
@@ -139,7 +144,7 @@ vic_sex %>%
   )
 ```
 
-Generally, the male victims are more. Between 2022 and 2023, there are multiple female victims peaks, but getting lower again after 2023.
+Generally, the male victims are more. Between 2022 and 2023, there were multiple peaks of female victims, but the number of female victims was getting lower than that of male victims again after 2023.
 
 2.  Victim Age
 
@@ -229,7 +234,62 @@ vic_race %>%
 
 Generally, Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) people are main victims.
 
+
+4. Victim Time
+
+```{r,comment=NA, warning=FALSE,message=FALSE}
+vic_time = data %>% 
+  mutate(Date.Rptd = mdy(sub("(\\d{2}/\\d{2}/\\d{4}).*", "\\1", Date.Rptd))) %>%
+  mutate(Month = month(Date.Rptd),
+         Year = year(Date.Rptd)) %>%
+  arrange(Date.Rptd) %>%
+  select(Crm.Cd,Month, Year) %>%
+  group_by(Year, Month) %>%
+  summarise(cases = n()) %>%
+  pivot_wider(names_from = Year, values_from = cases)
+head(vic_time)
+
+colors= c("2020" = "#e06666", "2021" = "#f6b26b", "2022" = "#93c47d","2023" = "#8e7cc3")
+vic_time %>%
+  ggplot(aes(x = Month)) +
+  geom_line(aes(y = `2020`, color = "2020")) +
+  geom_line(aes(y = `2021`, color = "2021")) +
+  geom_line(aes(y = `2022`, color = "2022")) +
+  geom_line(aes(y = `2023`, color = "2023")) +
+  scale_x_continuous(breaks = 1:12, labels = as.character(1:12)) +
+  scale_color_manual(values = colors) +
+  theme_classic() +
+  labs(
+    x = "Month of Crime Report",
+    y = "Number of Cases",
+    title = "Victim Time of the Crime in the City of Los Angeles",
+    subtitle = "Febraury 10, 2020 - November 1, 2023",
+    caption = "Christine Hou",
+    color = "Year"
+  ) +
+  theme(
+    plot.title = element_text(size=12),
+    plot.subtitle = element_text(size=10),
+    legend.title = element_text(size=9),
+    legend.text = element_text(size=8),
+    axis.title = element_text(size = 9),
+    axis.text = element_text(size = 8)
+  )
+```
+
+Generally, the most frequent average crime happens after June. The first half of each year has less criminal cases than the second half of each year.
+
 ### Conclusions
+
+Based on the analysis on the dataset providing criminal information in the City of Los Angeles collected by LAPD, we obtain many useful conclusions. Since Febraury 10, 2020 which is the start time of data update, the criminal cases in the City of Los Angeles is gradually increasing, even though there were some small decrease during the period. I paid more attention on how the criminal cases are related to victims' gender, age, and race. In general, 
+
+1) The number of male victims was more than that of female victims;
+
+2) Younger people (0-40 years old) were more likely to be attacked;
+
+3) Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) people were main victims.
+
+4) Many criminal cases tended to happen in the second six months from 2020 to 2023.
 
 ### Functions Used
 
@@ -243,7 +303,11 @@ Generally, Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) peopl
 -   group_by()
 -   case_when()
 
-2.  `ggplot2`
+2. `tidyr`
+
+-   pivot_wider()
+
+3.  `ggplot2`
 
 -   ggplot()
 -   geom_line()
@@ -251,11 +315,8 @@ Generally, Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) peopl
 -   geom_smooth()
 -   geom_boxplot()
 -   facet_wrap()
+-   scale_x_continuous()
+-   scale_color_manual()
 -   labs()
 -   theme()
 -   theme_classic()
-
-## [References]{style="color:#3eb489;"}
-
-::: {#refs}
-:::

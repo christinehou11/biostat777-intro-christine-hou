@@ -169,9 +169,9 @@ div.csl-indent {
   <li><a href="#pre-analysis" id="toc-pre-analysis" class="nav-link" data-scroll-target="#pre-analysis">Pre-Analysis</a></li>
   <li><a href="#data-overview" id="toc-data-overview" class="nav-link" data-scroll-target="#data-overview">Data Overview</a></li>
   <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis">Data Analysis</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   <li><a href="#functions-used" id="toc-functions-used" class="nav-link" data-scroll-target="#functions-used">Functions Used</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span style="color:#3eb489;">References</span></a></li>
   </ul>
 </nav>
     </div>
@@ -200,15 +200,15 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="introduction"><span style="color:#3eb489;">Introduction</span></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="LA.PNG" class="img-fluid figure-img" style="width:80.0%" alt="Los Angeles"></p>
-<figcaption class="figure-caption">Source: <a href="https://www.prevu.com/blog/best-neighborhoods-in-los-angeles" class="uri">https://www.prevu.com/blog/best-neighborhoods-in-los-angeles</a></figcaption>
+<p><img src="LA.PNG" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Source:<span class="citation" data-cites="image">(<a href="#ref-image" role="doc-biblioref">Team 2023</a>)</span></figcaption>
 </figure>
 </div>
-<p>The City of Los Angeles, a well-known and prosperous place in United States, attracts more people move in and settle down every year. It is common for every person to ask a question: Is the City of Los Angles a dangerous city, and what is the general distribution of crime incidents considering various factors? The safety evaluation before living in the area formally is extremely important for every <span style="color:#3eb489;">future residents</span>, and the evaluation can help <span style="color:#3eb489;">policymakers</span> make better polities to improve city infrastructure and protect current residents. Therefore, the data analysis of crime incidents in the City of Los Anegeles provided by LAPD (Los Angeles Police Department) would be really helpful. We all now that keeping safe is always on the top.</p>
+<p>The City of Los Angeles, a well-known and prosperous place in United States, attracts more people move in and settle down every year. It is common for every person to ask a question: Is the City of Los Angles a dangerous city, and what is the general distribution of crime incidents considering various factors? The safety evaluation before living in the area formally is extremely important for every <span style="color:#3eb489;">future residents</span>, and the evaluation can help <span style="color:#3eb489;">policymakers</span> make better policies to improve city infrastructure and protect current residents. Therefore, the data analysis of crime incidents in the City of Los Angeles provided by LAPD (Los Angeles Police Department) would be really helpful. We all know that keeping safe is always on the top.</p>
 </section>
 <section id="data-information" class="level2">
 <h2 class="anchored" data-anchor-id="data-information"><span style="color:#3eb489;">Data Information</span></h2>
-<p>This dataset comes from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a>, and it includes the information about crimes happened since Febraury 10, 2020, provided by <span style="color:#3eb489;">LAPD</span> (Los Angeles Police Department). I downloaded the dataset and began to conduct the analysis on November 5, 2023, and becuase the website is updated weekly, the <a href="https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?date=20231105&amp;accessType=DOWNLOAD">dataset</a> I analyzed on my web page contains the crime information from Febraury 10, 2020 to November 1, 2023.</p>
+<p>Gaining aspirations from the experts<span class="citation" data-cites="Campedelli_2020 hussain2022crime">(<a href="#ref-Campedelli_2020" role="doc-biblioref">Campedelli, Aziani, and Favarin 2020</a>; <a href="#ref-hussain2022crime" role="doc-biblioref">Hussain et al. 2022</a>)</span>, I chose the newst crime data from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a><span class="citation" data-cites="Data">(<a href="#ref-Data" role="doc-biblioref">Department 2020</a>)</span>, and it includes the information about crimes happened since Febraury 10, 2020, provided by <span style="color:#3eb489;">LAPD</span> (Los Angeles Police Department). I downloaded the dataset and began to conduct the analysis on November 5, 2023, and becuase the website is updated weekly, the dataset I analyzed on my web page only contains the crime information from Febraury 10, 2020 to November 1, 2023.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -219,10 +219,22 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I compressed the dataset <em>Crime_Data_from_2020_to_Present_20231105.csv</em> into <em>data.zip</em>, and uploaded to GitHub directory for convenience. If the dataset link above accidently expires, you can get access to the dataset by visiting my <a href="https://github.com/christinehou11/biostat777-intro-christine-hou/blob/main/data.zip">GitHub directory</a>.</p>
+<p>You can choose to click the link and export the dataset using the ‘Export’ buttom on the web page. You can also choose to download <em>data.zip</em> from my GitHub directory. I compressed the dataset into <em>data.zip</em>, and stored it in GitHub directory for convenience. If the website accidently expires, you can get access to the dataset by visiting my <a href="https://github.com/christinehou11/biostat777-intro-christine-hou/blob/main/data.zip">GitHub directory</a>.</p>
 </div>
 </div>
-<p>The dataset contains 830K rows and 28 columns, and the data dictionary is <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=Columns%20in%20this%20Dataset">here</a>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All data in the dataset was obtained from the crime paper report, so if the paper report provided inaccurate or wrong information, the dataset may be not 100% accurate. But the dataset truly reflects the content of paper report.</p>
+</div>
+</div>
 </section>
 <section id="analysis" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="analysis"><span style="color:#3eb489;">Analysis</span></h2>
@@ -234,7 +246,8 @@ Note
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-overview" class="level3">
@@ -300,7 +313,7 @@ Note
 </section>
 <section id="data-analysis" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="data-analysis">Data Analysis</h3>
-<p>Like what I mentioned in Introduction part, people are caring about the safety of living area. Therefore, in my analysis, I will focus on answering the question: <span style="color:#3eb489;">what are the crime statistics in the City of Los Angeles?</span></p>
+<p>In my analysis, I will focus on answering the question: <span style="color:#3eb489;">What are the features of victims in the City of Los Angeles?</span></p>
 <section id="how-does-the-crime-incidents-change-over-time-2020-2023" class="level4">
 <h4 class="anchored" data-anchor-id="how-does-the-crime-incidents-change-over-time-2020-2023"><span style="color:#3eb489;">How does the crime incidents change over time (2020-2023)?</span></h4>
 <div class="cell">
@@ -331,9 +344,6 @@ Note
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>,<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>)</span>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ s(x, bs = "cs")'</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
@@ -349,21 +359,21 @@ Note
 <div class="no-row-height column-margin column-container"><div class="">
 <p>The categories of gender and its abbreviation is here: <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=crime%20incident-,Columns,-in%20this%20Dataset" class="uri">https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=crime%20incident-,Columns,-in%20this%20Dataset</a></p>
 </div></div><div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data<span class="sc">$</span>Vict.Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data<span class="sc">$</span>Vict.Sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "F" "M" "X" ""  "H" "-"</code></pre>
 </div>
 </div>
 <p>Replace <code>NA</code> values, empty strings (““), and non-sense categories (”H”,“-”) into unknown category (“X”).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>vic_sex <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd)),</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Vict.Sex =</span> <span class="fu">ifelse</span>(Vict.Sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"X"</span>),Vict.Sex, <span class="st">"X"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Crm.Cd, Vict.Sex, Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Vict.Sex,Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cases =</span> <span class="fu">n</span>(),<span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vic_sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>vic_sex <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd)),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Vict.Sex =</span> <span class="fu">ifelse</span>(Vict.Sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"X"</span>),Vict.Sex, <span class="st">"X"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Crm.Cd, Vict.Sex, Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Vict.Sex,Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cases =</span> <span class="fu">n</span>(),<span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vic_sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Vict.Sex Date.Rptd  cases
@@ -375,46 +385,46 @@ Note
 5 F        2020-01-05   159
 6 F        2020-01-06   192</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>vic_sex <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date.Rptd, <span class="at">y =</span> cases,<span class="at">color =</span> Vict.Sex)) <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Date of Crime Report"</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Cases"</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Victim Gender of Crime in the City of Los Angeles"</span>,</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Febraury 10, 2020 - November 1, 2023"</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Gender"</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Christine Hou"</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">13</span>),</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>)</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vic_sex <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date.Rptd, <span class="at">y =</span> cases,<span class="at">color =</span> Vict.Sex)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Date of Crime Report"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Cases"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Victim Gender of Crime in the City of Los Angeles"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Febraury 10, 2020 - November 1, 2023"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Gender"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Christine Hou"</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">13</span>),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Generally, the male victims are more. Between 2022 and 2023, there are multiple female victims peaks, but getting lower again after 2023.</p>
+<p>Generally, the male victims are more. Between 2022 and 2023, there were multiple peaks of female victims, but the number of female victims was getting lower than that of male victims again after 2023.</p>
 <ol start="2" type="1">
 <li>Victim Age</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vic_age <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd)),</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Vict.Sex =</span> <span class="fu">ifelse</span>(Vict.Sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"X"</span>),Vict.Sex, <span class="st">"X"</span>),</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Age =</span> <span class="fu">case_when</span>(Vict.Age <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">"0-20"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                         Vict.Age <span class="sc">&gt;=</span> <span class="dv">21</span> <span class="sc">&amp;</span> Vict.Age <span class="sc">&lt;=</span> <span class="dv">40</span> <span class="sc">~</span> <span class="st">"21-40"</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                         Vict.Age <span class="sc">&gt;=</span> <span class="dv">41</span> <span class="sc">&amp;</span> Vict.Age <span class="sc">&lt;=</span> <span class="dv">60</span> <span class="sc">~</span> <span class="st">"41-60"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                         Vict.Age <span class="sc">&gt;=</span> <span class="dv">61</span> <span class="sc">&amp;</span> Vict.Age <span class="sc">&lt;=</span> <span class="dv">80</span> <span class="sc">~</span> <span class="st">"61-80"</span>,</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                         Vict.Age <span class="sc">&gt;=</span> <span class="dv">81</span> <span class="sc">&amp;</span> Vict.Age <span class="sc">&lt;=</span> <span class="fu">max</span>(data<span class="sc">$</span>Vict.Age) <span class="sc">~</span> <span class="st">"80-"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Crm.Cd,Age,Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Age, Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cases =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vic_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>vic_age <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd)),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Vict.Sex =</span> <span class="fu">ifelse</span>(Vict.Sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"X"</span>),Vict.Sex, <span class="st">"X"</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Age =</span> <span class="fu">case_when</span>(Vict.Age <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">"0-20"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                         Vict.Age <span class="sc">&gt;=</span> <span class="dv">21</span> <span class="sc">&amp;</span> Vict.Age <span class="sc">&lt;=</span> <span class="dv">40</span> <span class="sc">~</span> <span class="st">"21-40"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                         Vict.Age <span class="sc">&gt;=</span> <span class="dv">41</span> <span class="sc">&amp;</span> Vict.Age <span class="sc">&lt;=</span> <span class="dv">60</span> <span class="sc">~</span> <span class="st">"41-60"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                         Vict.Age <span class="sc">&gt;=</span> <span class="dv">61</span> <span class="sc">&amp;</span> Vict.Age <span class="sc">&lt;=</span> <span class="dv">80</span> <span class="sc">~</span> <span class="st">"61-80"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                         Vict.Age <span class="sc">&gt;=</span> <span class="dv">81</span> <span class="sc">&amp;</span> Vict.Age <span class="sc">&lt;=</span> <span class="fu">max</span>(data<span class="sc">$</span>Vict.Age) <span class="sc">~</span> <span class="st">"80-"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Crm.Cd,Age,Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Age, Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cases =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vic_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Age   Date.Rptd  cases
@@ -426,26 +436,26 @@ Note
 5 0-20  2020-01-05    97
 6 0-20  2020-01-06   145</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>vic_age <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Age Range"</span>,</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Cases"</span>,</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Victim Age of Crime in the City of Los Angeles"</span>,</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Febraury 10, 2020 - November 1, 2023"</span>,</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Christine Hou"</span>,</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Age Range"</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>)</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>vic_age <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Age Range"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Cases"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Victim Age of Crime in the City of Los Angeles"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Febraury 10, 2020 - November 1, 2023"</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Christine Hou"</span>,</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Age Range"</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -458,7 +468,7 @@ Note
 <div class="no-row-height column-margin column-container"><div class="">
 <p>The categories of race and its abbreviation is here: <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=crime%20incident-,Columns,-in%20this%20Dataset" class="uri">https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=crime%20incident-,Columns,-in%20this%20Dataset</a></p>
 </div></div><div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data<span class="sc">$</span>Vict.Descent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data<span class="sc">$</span>Vict.Descent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "B" "H" "X" "W" "A" "O" ""  "C" "F" "K" "I" "V" "Z" "J" "P" "G" "U" "D" "S"
 [20] "L" "-"</code></pre>
@@ -466,14 +476,14 @@ Note
 </div>
 <p>Replace empty string (““) and non-sense characters (”-“) into unknown category (”X”).</p>
 <div class="cell" data-fig.asp="1.5">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>vic_race <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd)),</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Vict.Descent =</span> <span class="fu">ifelse</span>(Vict.Descent <span class="sc">==</span> <span class="st">"-"</span><span class="sc">|</span>Vict.Descent <span class="sc">==</span> <span class="st">""</span>, <span class="st">"X"</span>, Vict.Descent)) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Crm.Cd, Vict.Descent, Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Vict.Descent, Date.Rptd) <span class="sc">%&gt;%</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cases =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vic_race)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>vic_race <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd)),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Vict.Descent =</span> <span class="fu">ifelse</span>(Vict.Descent <span class="sc">==</span> <span class="st">"-"</span><span class="sc">|</span>Vict.Descent <span class="sc">==</span> <span class="st">""</span>, <span class="st">"X"</span>, Vict.Descent)) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Crm.Cd, Vict.Descent, Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Vict.Descent, Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cases =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vic_race)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Vict.Descent Date.Rptd  cases
@@ -485,33 +495,99 @@ Note
 5 A            2020-01-05     6
 6 A            2020-01-06    15</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>vic_race <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date.Rptd, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">'gam'</span>,<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Vict.Descent<span class="sc">~</span>.,<span class="at">nrow=</span><span class="dv">7</span>,<span class="at">scales =</span> <span class="st">'fixed'</span>) <span class="sc">+</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Date of Crime Report"</span>,</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Cases"</span>,</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Victim Race of Crime in the City of Los Angeles"</span>,</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Febraury 10, 2020 - November 1, 2023"</span>,</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Christine Hou"</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span><span class="dv">1</span>)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>vic_race <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date.Rptd, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">'gam'</span>,<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Vict.Descent<span class="sc">~</span>.,<span class="at">nrow=</span><span class="dv">7</span>,<span class="at">scales =</span> <span class="st">'fixed'</span>) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Date of Crime Report"</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Cases"</span>,</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Victim Race of Crime in the City of Los Angeles"</span>,</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Febraury 10, 2020 - November 1, 2023"</span>,</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Christine Hou"</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span><span class="dv">1</span>)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_analysis_files/figure-html/unnamed-chunk-10-1.png" style="height:100.0%" width="672"></p>
 </div>
 </div>
 <p>Generally, Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) people are main victims.</p>
+<ol start="4" type="1">
+<li>Victim Time</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>vic_time <span class="ot">=</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Date.Rptd =</span> <span class="fu">mdy</span>(<span class="fu">sub</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{2}/</span><span class="sc">\\</span><span class="st">d{4}).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, Date.Rptd))) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">month</span>(Date.Rptd),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Year =</span> <span class="fu">year</span>(Date.Rptd)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date.Rptd) <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Crm.Cd,Month, Year) <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Month) <span class="sc">%&gt;%</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cases =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Year, <span class="at">values_from =</span> cases)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vic_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  Month `2020` `2021` `2022` `2023`
+  &lt;dbl&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;
+1     1  16060  16154  18397  20057
+2     2  16490  15411  17710  18761
+3     3  15539  16306  19801  19369
+4     4  15178  16015  19769  19019
+5     5  16331  16785  20597  19409
+6     6  16955  17124  20263  18938</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>colors<span class="ot">=</span> <span class="fu">c</span>(<span class="st">"2020"</span> <span class="ot">=</span> <span class="st">"#e06666"</span>, <span class="st">"2021"</span> <span class="ot">=</span> <span class="st">"#f6b26b"</span>, <span class="st">"2022"</span> <span class="ot">=</span> <span class="st">"#93c47d"</span>,<span class="st">"2023"</span> <span class="ot">=</span> <span class="st">"#8e7cc3"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>vic_time <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month)) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">2020</span><span class="st">`</span>, <span class="at">color =</span> <span class="st">"2020"</span>)) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">2021</span><span class="st">`</span>, <span class="at">color =</span> <span class="st">"2021"</span>)) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">2022</span><span class="st">`</span>, <span class="at">color =</span> <span class="st">"2022"</span>)) <span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">2023</span><span class="st">`</span>, <span class="at">color =</span> <span class="st">"2023"</span>)) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">labels =</span> <span class="fu">as.character</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Month of Crime Report"</span>,</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Cases"</span>,</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Victim Time of the Crime in the City of Los Angeles"</span>,</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Febraury 10, 2020 - November 1, 2023"</span>,</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Christine Hou"</span>,</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Year"</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>),</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>)</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data_analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Generally, the most frequent average crime happens after June. The first half of each year has less criminal cases than the second half of each year.</p>
 </section>
+</section>
+<section id="conclusions" class="level3">
+<h3 class="anchored" data-anchor-id="conclusions">Conclusions</h3>
+<p>Based on the analysis on the dataset providing criminal information in the City of Los Angeles collected by LAPD, we obtain many useful conclusions. Since Febraury 10, 2020 which is the start time of data update, the criminal cases in the City of Los Angeles is gradually increasing, even though there were some small decrease during the period. I paid more attention on how the criminal cases are related to victims’ gender, age, and race. In general,</p>
+<ol type="1">
+<li><p>The number of male victims was more than that of female victims;</p></li>
+<li><p>Younger people (0-40 years old) were more likely to be attacked;</p></li>
+<li><p>Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) people were main victims.</p></li>
+<li><p>Many criminal cases tended to happen in the second six months from 2020 to 2023.</p></li>
+</ol>
 </section>
 <section id="functions-used" class="level3">
 <h3 class="anchored" data-anchor-id="functions-used">Functions Used</h3>
@@ -528,6 +604,12 @@ Note
 <li>case_when()</li>
 </ul>
 <ol start="2" type="1">
+<li><code>tidyr</code></li>
+</ol>
+<ul>
+<li>pivot_wider()</li>
+</ul>
+<ol start="3" type="1">
 <li><code>ggplot2</code></li>
 </ol>
 <ul>
@@ -537,22 +619,32 @@ Note
 <li>geom_smooth()</li>
 <li>geom_boxplot()</li>
 <li>facet_wrap()</li>
+<li>scale_x_continuous()</li>
+<li>scale_color_manual()</li>
 <li>labs()</li>
 <li>theme()</li>
 <li>theme_classic()</li>
 </ul>
-</section>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references"><span style="color:#3eb489;">References</span></h2>
-<div id="refs" role="list">
 
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Campedelli_2020" class="csl-entry" role="listitem">
+Campedelli, Gian Maria, Alberto Aziani, and Serena Favarin. 2020. <span>“Exploring the Immediate Effects of <span>COVID</span>-19 Containment Policies on Crime: An Empirical Analysis of the Short-Term Aftermath in Los Angeles.”</span> <em>American Journal of Criminal Justice</em> 46 (5): 704–27. <a href="https://doi.org/10.1007/s12103-020-09578-6">https://doi.org/10.1007/s12103-020-09578-6</a>.
 </div>
-
-
-</section>
-
-</main> <!-- /main -->
+<div id="ref-Data" class="csl-entry" role="listitem">
+Department, Los Angeles Police. 2020. <span>“Crime Data from 2020 to Present.”</span> February 10, 2020. <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=from%202020%20to-,Present,-Public%20Safety">https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=from%202020%20to-,Present,-Public%20Safety</a>.
+</div>
+<div id="ref-hussain2022crime" class="csl-entry" role="listitem">
+Hussain, Rubab, Rigo Vargas, Hieu Hughes Le-Au, Will Gass, Melissa Fenn, Briseyda Serna-Marquez, and Jongwook Woo. 2022. <span>“Crime Patterns in Los Angeles County Before and After Covid19 (2018-2021).”</span> <a href="https://arxiv.org/abs/2204.04399">https://arxiv.org/abs/2204.04399</a>.
+</div>
+<div id="ref-image" class="csl-entry" role="listitem">
+Team, Prevu. 2023. <span>“The 12 Best Neighborhoods in Los Angeles - 2023 Guide.”</span> March 23, 2023. <a href="https://www.prevu.com/blog/best-neighborhoods-in-los-angeles">https://www.prevu.com/blog/best-neighborhoods-in-los-angeles</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
