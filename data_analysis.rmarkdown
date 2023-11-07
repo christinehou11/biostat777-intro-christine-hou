@@ -3,6 +3,7 @@ title: "Crime Data in Los Angeles"
 subtitle: "Febraury 10, 2020 to November 1, 2023"
 ---
 
+
 ## [Introduction]{style="color:#3eb489;"}
 
 ![Source: <https://www.prevu.com/blog/best-neighborhoods-in-los-angeles>](LA.PNG){fig-alt="Los Angeles" fig-align="center" width="80%"}
@@ -23,6 +24,7 @@ The dataset contains 830K rows and 28 columns, and the data dictionary is <a hre
 
 ### Pre-Analysis
 
+
 ```{r,message=FALSE,warning=FALSE}
 library(ggplot2)
 library(dplyr)
@@ -32,28 +34,35 @@ library(lubridate)
 library(forcats)
 ```
 
+
 ### Data Overview
 
 First, read the data from *data.zip* file, and store it in local environment.
+
 
 ```{r,comment=NA}
 data <- read.csv(unz("data.zip", "Crime_Data_from_2020_to_Present_20231105.csv"), header = TRUE,sep = ",")
 ```
 
+
 Then, let's have a brief overview of this dataset.
+
 
 ```{r,comment=NA}
 dim(data)
 colnames(data)
 ```
 
+
 This dataset has approximately 830K rows and 28 columns, containing many useful information including crime report data, number of cases, crime area/age/sex/serious level/address, etc. There are many analysis possibilities using this dataset.
+
 
 ```{r,comment=NA}
 for (col in 1:ncol(data)) {
   print(paste(colnames(data)[col], sum(is.na(data[col]))))
 }
 ```
+
 
 Some columns exist the NA values, and some character columns have empty strings without providing any useful information. Therefore, pay attention to these columns, and process the dataset using some filter functions to perform better analysis.
 
@@ -62,6 +71,7 @@ Some columns exist the NA values, and some character columns have empty strings 
 Like what I mentioned in Introduction part, people are caring about the safety of living area. Therefore, in my analysis, I will focus on answering the question: [what are the crime statistics in the City of Los Angeles?]{style="color:#3eb489;"}
 
 #### [How does the crime incidents change over time (2020-2023)?]{style="color:#3eb489;"}
+
 
 ```{r, out.width="100%"}
 data %>%
@@ -93,6 +103,7 @@ data %>%
   )
 ```
 
+
 As we can see from the plot, the criminal cases in the Los Angeles is increasing over time from 2020 to 2023. There exists the fluctuations, but the general trend is increasing.
 
 #### [Now, it is the time to know more crime statistics.]{style="color:#3eb489;"}
@@ -103,11 +114,14 @@ As we can see from the plot, the criminal cases in the Los Angeles is increasing
 The categories of gender and its abbreviation is here: <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=crime%20incident-,Columns,-in%20this%20Dataset" class="uri">https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:\~:text=crime%20incident-,Columns,-in%20this%20Dataset</a>
 :::
 
+
 ```{r,comment=NA}
 unique(data$Vict.Sex)
 ```
 
+
 Replace `NA` values, empty strings (""), and non-sense categories ("H","-") into unknown category ("X").
+
 
 ```{r,comment=NA}
 vic_sex = data %>%
@@ -139,9 +153,11 @@ vic_sex %>%
   )
 ```
 
+
 Generally, the male victims are more. Between 2022 and 2023, there are multiple female victims peaks, but getting lower again after 2023.
 
 2.  Victim Age
+
 
 ```{r,comment=NA}
 vic_age = data %>%
@@ -180,6 +196,7 @@ vic_age %>%
   )
 ```
 
+
 Generally, people in age ranges of 0-20 and 21-40 years old have higher risk of being hurt. The age range with the highest ciminal cases report is 21-40 years old, and that with the lowest is over 80 years old.
 
 3.  Victim Race
@@ -188,11 +205,14 @@ Generally, people in age ranges of 0-20 and 21-40 years old have higher risk of 
 The categories of race and its abbreviation is here: <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=crime%20incident-,Columns,-in%20this%20Dataset" class="uri">https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:\~:text=crime%20incident-,Columns,-in%20this%20Dataset</a>
 :::
 
+
 ```{r,comment=NA}
 unique(data$Vict.Descent)
 ```
 
+
 Replace empty string ("") and non-sense characters ("-") into unknown category ("X").
+
 
 ```{r  fig.asp = 1.5,comment=NA,out.height="100%", warning=FALSE, message=FALSE}
 vic_race = data %>%
@@ -227,6 +247,7 @@ vic_race %>%
   )
 ```
 
+
 Generally, Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) people are main victims.
 
 ### Conclusions
@@ -259,3 +280,4 @@ Generally, Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) peopl
 
 ::: {#refs}
 :::
+
