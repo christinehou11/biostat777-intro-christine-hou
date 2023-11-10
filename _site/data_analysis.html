@@ -274,6 +274,7 @@ Important
 </div>
 </div>
 <p>This dataset has approximately 830K rows and 28 columns, containing many useful information including crime report data, number of cases, crime area/age/sex/serious level/address, etc. There are many analysis possibilities using this dataset.</p>
+<p>The detailed data dictionary is <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=Columns%20in-,this,-Dataset" class="uri">https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=Columns%20in-,this,-Dataset</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (col <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(data)) {</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="fu">colnames</span>(data)[col], <span class="fu">sum</span>(<span class="fu">is.na</span>(data[col]))))</span>

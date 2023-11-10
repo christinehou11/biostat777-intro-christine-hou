@@ -15,8 +15,7 @@ The City of Los Angeles, a well-known and prosperous place in United States, att
 Gaining aspirations from the experts[@Campedelli_2020; @hussain2022crime], I chose the newst crime data from <a href="https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8">Los Angeles Open Data - Public Safety-Crime Data from 2020 to Present</a>[@Data], and it includes the information about crimes happened since Febraury 10, 2020, provided by [LAPD]{style="color:#3eb489;"} (Los Angeles Police Department). I downloaded the dataset and began to conduct the analysis on November 5, 2023, and becuase the website is updated weekly, the dataset I analyzed on my web page only contains the crime information from Febraury 10, 2020 to November 1, 2023.
 
 ::: callout-note
-You can choose to click the link and export the dataset using the 'Export' buttom on the web page. 
-You can also choose to download *data.zip* from my GitHub directory. I compressed the dataset into *data.zip*, and stored it in GitHub directory for convenience. If the website accidently expires, you can get access to the dataset by visiting my <a href = "https://github.com/christinehou11/biostat777-intro-christine-hou/blob/main/data.zip">GitHub directory</a>.
+You can choose to click the link and export the dataset using the 'Export' buttom on the web page. You can also choose to download *data.zip* from my GitHub directory. I compressed the dataset into *data.zip*, and stored it in GitHub directory for convenience. If the website accidently expires, you can get access to the dataset by visiting my <a href = "https://github.com/christinehou11/biostat777-intro-christine-hou/blob/main/data.zip">GitHub directory</a>.
 :::
 
 ::: callout-important
@@ -53,6 +52,8 @@ colnames(data)
 ```
 
 This dataset has approximately 830K rows and 28 columns, containing many useful information including crime report data, number of cases, crime area/age/sex/serious level/address, etc. There are many analysis possibilities using this dataset.
+
+The detailed data dictionary is <https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8#:~:text=Columns%20in-,this,-Dataset>.
 
 ```{r,comment=NA}
 for (col in 1:ncol(data)) {
@@ -234,8 +235,7 @@ vic_race %>%
 
 Generally, Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) people are main victims.
 
-
-4. Victim Time
+4.  Victim Time
 
 ```{r,comment=NA, warning=FALSE,message=FALSE}
 vic_time = data %>% 
@@ -281,15 +281,15 @@ Generally, the most frequent average crime happens after June. The first half of
 
 ### Conclusions
 
-Based on the analysis on the dataset providing criminal information in the City of Los Angeles collected by LAPD, we obtain many useful conclusions. Since Febraury 10, 2020 which is the start time of data update, the criminal cases in the City of Los Angeles is gradually increasing, even though there were some small decrease during the period. I paid more attention on how the criminal cases are related to victims' gender, age, and race. In general, 
+Based on the analysis on the dataset providing criminal information in the City of Los Angeles collected by LAPD, we obtain many useful conclusions. Since Febraury 10, 2020 which is the start time of data update, the criminal cases in the City of Los Angeles is gradually increasing, even though there were some small decrease during the period. I paid more attention on how the criminal cases are related to victims' gender, age, and race. In general,
 
-1) The number of male victims was more than that of female victims;
+1)  The number of male victims was more than that of female victims;
 
-2) Younger people (0-40 years old) were more likely to be attacked;
+2)  Younger people (0-40 years old) were more likely to be attacked;
 
-3) Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) people were main victims.
+3)  Hispanic/Latin/Mexican (H), White (W), Asian (A), and Black (B) people were main victims.
 
-4) Many criminal cases tended to happen in the second six months from 2020 to 2023.
+4)  Many criminal cases tended to happen in the second six months from 2020 to 2023.
 
 ### Functions Used
 
@@ -303,7 +303,7 @@ Based on the analysis on the dataset providing criminal information in the City 
 -   group_by()
 -   case_when()
 
-2. `tidyr`
+2.  `tidyr`
 
 -   pivot_wider()
 
